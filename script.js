@@ -31,7 +31,6 @@ function showQrCode(){
     sharing.style.opacity = '0';
     kodQRDiv.style.opacity = '1';
     kodQRDiv.style.zIndex = '2';
-    generateQRCode(window.location.href);
   }else{
     sharing.style.opacity = '1';
     kodQRDiv.style.zIndex = '-1'; 
@@ -74,19 +73,5 @@ function copyLink(){
     alert("Adres strony pomyślnie skopiowany do schowka");
   }).catch(function(err) {
     alert("Próba skopiowania adresu strony nieudana");
-  });
-}
-
-function generateQRCode(text) {
-  // Sprawdź, czy element img wewnątrz elementu o identyfikatorze "kode" już istnieje
-  var existingImgElement = document.getElementById("qr") ? document.getElementById("qr").querySelector("img") : null;
-  if (existingImgElement) {
-      return;
-  }
-
-  var qrcode = new QRCode(document.getElementById("qr"), {
-    text: text,
-    width: 400,
-    height: 400
   });
 }
