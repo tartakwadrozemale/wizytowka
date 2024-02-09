@@ -1,0 +1,277 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --red: rgb(255, 0, 0);
+  --dark_red: rgb(172, 0, 0);
+  --blue: rgb(0, 60, 172);
+  --light_blue: rgb(0, 132, 255);
+}
+
+body {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  background: -webkit-linear-gradient(70deg, var(--light_blue), var(--blue));
+}
+
+* {
+  transition: .3s;
+}
+
+.container {
+  margin: 0;
+  background: url('images/saw-blade-1801186_1920.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  overflow: auto;
+}
+
+header {
+  margin-left: 20px;
+  text-align: left;
+  color: yellow;
+  text-shadow: 6px 6px 3px rgba(0, 0, 0, 0.8);
+}
+
+header h1 {
+  font-weight: bold;
+  font-size: 87px;
+  margin: auto;
+}
+
+.data {
+  font-size: 36px;
+  color: white;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.9);
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+.data p {
+  text-align: left;
+  display: flex;
+  height: 40%;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.data:hover>p:hover,
+.data p:hover {
+  color: yellow;
+  cursor: pointer;
+}
+
+.data:hover>p:hover>a:hover::before>a {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.data a {
+  margin: 0px;
+  text-decoration: none;
+  margin: 0px 5px 25px 5px;
+  border-radius: 20px;
+  position: relative;
+  background: var(--dark_red);
+  height: 100%;
+  width: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+}
+
+.data a::before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--red);
+  width: 0%;
+  height: 0%;
+  overflow: hidden;
+  transform: rotateY(-50%);
+  z-index: 1;
+  transition: .2s;
+}
+
+.data a:hover::before {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.data i {
+  display: flex;
+  color: rgb(255, 255, 255);
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer {
+  z-index: -1;
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out 0s;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 26px;
+  overflow: auto;
+}
+
+.offer img {
+  border: 5px white solid;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.offer p {
+  margin: 0px;
+}
+
+.qrcode {
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  z-index: -4;
+  flex-direction: column;
+  align-items: center;
+}
+.qrcode section{
+  margin: 0px;
+}
+
+@media only screen and (max-width: 522px) {
+  .data {
+    margin-left: 0px;
+  }
+
+  header {
+    display: flex;
+    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 57px;
+  }
+
+  .offer {
+    align-items: left;
+  }
+
+  .offer img {
+    height: 70vw;
+    width: 90vw;
+  }
+
+  .data {
+    font-size: 30px;
+  }
+
+  .data i {
+    width: 40px;
+    height: 40px;
+  }
+
+  .data a {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  body {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  header {
+    display: flex;
+    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 47px;
+  }
+
+  .data a p {
+    margin: 0px;
+  }
+
+  .data {
+    font-size: 26px;
+  }
+
+  .data i {
+    width: 30px;
+    height: 30px;
+  }
+
+  .data a {
+    width: 30px;
+    height: 30px;
+  }
+
+  .offer {
+    align-items: stretch;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  header {
+    display: flex;
+    margin-left: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 33px;
+  }
+
+  .data {
+    font-size: 19px;
+  }
+
+  .data i {
+    width: 25px;
+    height: 25px;
+  }
+
+  .data a {
+    width: 25px;
+    height: 25px;
+  }
+}

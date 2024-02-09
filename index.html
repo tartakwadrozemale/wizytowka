@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Tartak Wądroże Małe - Wizytówka. Oferujemy wiązby dachowe, łaty, kontrłaty, deski szalunkowe, drewno konstrukcyjne i transport do klienta." />
+  <meta name="keywords"
+    content="tartak, Wądroże Małe, wiązba dachowa, łaty, kontrłaty, deski szalunkowe, drewno konstrukcyjne, transport, oferta" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Tartak Wądroże Małe" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Tartak Wądroże Małe - Wizytówka</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Tartak</h1>
+      <h1>Wądroże Małe</h1>
+    </header>
+    <div class="data" id="data">
+      <p onclick="location.href = 'tel: 694016792' "><a href="tel: 694016792"><i class='bx bxs-phone'></i></a>694 016
+        792</p>
+      <p
+        onclick="location.href = 'https://www.google.com/maps/dir//Tartak+W%C4%85dro%C5%BCe+Ma%C5%82e++Wizyt%C3%B3wka./data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x470f0900134b2cb1:0xbb07083387c81978sa=X&ved=2ahUKEwiynaaToZeEAxVyKBAIHcAED_AQ9Rd6BAgzEAA'">
+        <a href="#"><i class='bx bxs-map'></i></a>Wądroże Małe 24
+      </p>
+      <p onclick='showOffer()'><a href="#oferta"><i class='bx bx-info-circle'></i></a>Oferta</p>
+      <p onclick="udostepnijQR()"><a href="#"><i class='bx bxs-share-alt'></i></a>Udostepnij</p>
+    </div>
+  </div>
+  <div class="offer" id="offer" onclick="hiddeOffer('offer', event)">
+    <p>Więźba dachowa</p>
+    <p>Łaty</p>
+    <p>Kontrłaty</p>
+    <p>Deski szalunkowe</p>
+    <p>Drewno Konstrukcyjne</p>
+    <p>Transport do klienta</p>
+  </div>
+  <div id="kodQR" class="offer" onclick="hiddeOffer('kodQR', event)">
+    <section class="data" id="sharing">
+      <p onclick="showQrCode()"><a href="#"><i class='bx bx-qr'></i></a>Pokaż kod Qr</p>
+      <p onclick="sendMessage()"><a href="#"><i class='bx bx-message-alt-detail' ></i></a>Wyślij wiadomość z linkiem</p>
+      <p id="textToCopy" onclick="copyLink()"><a href="#"><i class='bx bx-link-alt'></i></a>Kopiuj Link</p>
+    </section>
+    <section id="qr" alt="" class="qrcode" style="opacity: 0;">
+      <section class="data">
+        <p onclick="showQrCode()"><a href="#"><i class='bx bx-qr'></i></a>Schowaj kod Qr</p>
+      </section>
+    </section>
+  </div>
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
