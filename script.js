@@ -1,5 +1,13 @@
 function udostepnijQR() {
   var kodQRDiv = document.getElementById('kodQR');
+  var message = document.getElementById('message');
+  if (!navigator.share){
+    message.style.opacity = '0'
+    message.style.zIndex = '-3'
+  }else {
+    message.style.opacity = '1'
+    message.style.zIndex = '3'
+  }
 
   kodQRDiv.style.opacity = 1;
   kodQRDiv.style.pointerEvents = 'auto';
