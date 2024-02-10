@@ -24,7 +24,7 @@ body {
 
 .container {
   margin: 0;
-  background: url('images/saw-blade-1801186_1920.jpg') no-repeat center center fixed;
+  background: url('https://cdn.pixabay.com/photo/2016/11/05/19/44/saw-blade-1801186_1280.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   height: 100%;
