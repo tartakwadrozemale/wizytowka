@@ -17,14 +17,14 @@ function udostepnijQR() {
 function sendMessage(){
   var tekstDoQR = window.location.href;
 
-  var wiadomosc = "Tartak Wądroże Małe - Wirtualna Wizytówka";
+  var wiadomosc = "Wirtualna Wizytówka";
   if (navigator.share) {
     navigator.share({
-      title: "",
+      title: "Tartak Wądroże Małe",
       text: wiadomosc,
       url: tekstDoQR
     })
-      .then(() => console.log('Udostępniono kod QR'))
+      .then(() => textInfo("Wysłanie wiadomości zakończone powodzeniem"))
       .catch((error) => console.error('Błąd podczas udostępniania: ', error));
   } else {
     alert("Niestety próba załadowania listy aplikacji, których można użyć do udostępnienia treści zakończyła się niepowodzeniem");
@@ -34,14 +34,17 @@ function sendMessage(){
 function showQrCode(){
   var kodQRDiv = document.getElementById('qr'); // Use 'qr' for the first assignment
   var sharing = document.getElementById('sharing');
+  var qrButton = document.getElementById('qrButton');
 
   if (kodQRDiv.style.opacity === '0'){
     sharing.style.opacity = '0';
     kodQRDiv.style.opacity = '1';
     kodQRDiv.style.zIndex = '2';
+    qrButton.style.zIndex = '2'
   }else{
     sharing.style.opacity = '1';
-    kodQRDiv.style.zIndex = '-1'; 
+    kodQRDiv.style.zIndex = '-1';
+    qrButton.style.zIndex = '-1' 
     kodQRDiv.style.opacity = '0';
   }
 }
@@ -78,8 +81,22 @@ function copyLink(){
 
   // Skopiuj adres do schowka
   navigator.clipboard.writeText(currentUrl).then(function() {
-    alert("Adres strony pomyślnie skopiowany do schowka");
+    textInfo("Adres strony pomyślnie skopiowany do schowka");
   }).catch(function(err) {
     alert("Próba skopiowania adresu strony nieudana");
   });
+}
+function textInfo(text) {
+  var infoDiv = document.getElementById('infoDiv');
+  var infoText = document.getElementById('text');
+  console.log(text);
+
+  infoDiv.style.opacity = '1';
+  infoDiv.style.zIndex = '7';
+  infoText.textContent = text;  // Użyj textContent zamiast text
+
+  setTimeout(function () {
+    infoDiv.style.opacity = '0';
+    infoDiv.style.zIndex = '-4';
+  }, 6000);
 }

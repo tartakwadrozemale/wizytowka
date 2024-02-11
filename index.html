@@ -48,9 +48,12 @@
     <section id="qr" alt="" class="qrcode" style="opacity: 0;">
       <img src="https://raw.githubusercontent.com/tartakwadrozemale/images/main/wizytowka/kod%20qr.png" alt="">
       <section class="data">
-        <p onclick="showQrCode()"><a href="#"><i class='bx bx-qr'></i></a>Schowaj kod Qr</p>
+        <p id="qrButton" style="z-index: -1;" onclick="showQrCode()"><a href="#"><i class='bx bx-qr'></i></a>Schowaj kod Qr</p>
       </section>
     </section>
+  </div>
+  <div class="infoTextDiv" id="infoDiv" onclick="hiddeOffer('infoTextDiv', event)">
+    <span id="text">text</span>
   </div>
   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
   <script src="script.js"></script>
