@@ -54,6 +54,7 @@ header h1 {
   display: grid;
   grid-template-columns: 1fr;
   justify-items: start;
+  padding-bottom: 40px;
 }
 
 .data p {
@@ -168,6 +169,7 @@ header h1 {
 @media only screen and (max-width: 522px) {
   .data {
     margin-left: 0px;
+    padding-bottom: 30px;
   }
 
   header {
@@ -234,6 +236,7 @@ header h1 {
   }
 
   .data {
+    padding-bottom: 20px;
     font-size: 26px;
   }
 
@@ -270,6 +273,7 @@ header h1 {
   }
 
   .data {
+    padding-bottom: 10px;
     font-size: 19px;
   }
 
