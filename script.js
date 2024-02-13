@@ -2,16 +2,22 @@ function udostepnijQR() {
   var kodQRDiv = document.getElementById('kodQR');
   var message = document.getElementById('message');
   if (!navigator.share){
-    message.style.opacity = '0'
-    message.style.zIndex = '-3'
+    setStyles(message, 0, -3)
   }else {
-    message.style.opacity = '1'
-    message.style.zIndex = '3'
+    setStyles(message, 1, 3)
   }
 
-  kodQRDiv.style.opacity = 1;
+  setStyles(kodQRDiv, 1, 3)
   kodQRDiv.style.pointerEvents = 'auto';
-  kodQRDiv.style.zIndex = '3';
+}
+
+function setStyles(element, opacity, zIndex) {
+  if (opacity !== ''){
+    element.style.opacity = opacity;
+  }
+  if (zIndex !== ''){
+    element.style.zIndex = zIndex;
+  }
 }
 
 function sendMessage(){
@@ -38,22 +44,19 @@ function showQrCode(){
 
   if (kodQRDiv.style.opacity === '0'){
     sharing.style.opacity = '0';
-    kodQRDiv.style.opacity = '1';
-    kodQRDiv.style.zIndex = '2';
-    qrButton.style.zIndex = '2'
+    setStyles(kodQRDiv, 1, 2);
+    qrButton.style.zIndex = '2';
   }else{
     sharing.style.opacity = '1';
-    kodQRDiv.style.zIndex = '-1';
-    qrButton.style.zIndex = '-1' 
-    kodQRDiv.style.opacity = '0';
+    setStyles(kodQRDiv, 0, -1);
+    qrButton.style.zIndex = '-1';
   }
 }
 
 function showOffer() {
   var offerDiv = document.getElementById('offer');
-  offerDiv.style.opacity = 1;
   offerDiv.style.pointerEvents = 'auto';
-  offerDiv.style.zIndex = '3';
+  setStyles(offerDiv, 1, 3);
 
   var contactIcons = document.querySelectorAll('.data a i');
   contactIcons.forEach(icon => {
@@ -64,10 +67,9 @@ function hiddeOffer(id, event) {
   var offerDiv = document.getElementById(id);
 
   if (event.target.tagName.toLowerCase() !== 'p' || id !== 'kodQR') {
-    offerDiv.style.opacity = 0;
+    setStyles(offerDiv, 0, -1)
     offerDiv.style.pointerEvents = 'auto';
     location.href = '#';
-    offerDiv.style.zIndex = '-1';
 
     var contactIcons = document.querySelectorAll('.data a i');
     contactIcons.forEach(icon => {
@@ -83,20 +85,19 @@ function copyLink(){
   navigator.clipboard.writeText(currentUrl).then(function() {
     textInfo("Adres strony pomyślnie skopiowany do schowka");
   }).catch(function(err) {
-    alert("Próba skopiowania adresu strony nieudana");
+    textInfo("Próba skopiowania adresu strony nieudana");
   });
 }
+
 function textInfo(text) {
   var infoDiv = document.getElementById('infoDiv');
   var infoText = document.getElementById('text');
   console.log(text);
 
-  infoDiv.style.opacity = '1';
-  infoDiv.style.zIndex = '7';
+  setStyles(infoDiv, 1, 7)
   infoText.textContent = text;  // Użyj textContent zamiast text
 
   setTimeout(function () {
-    infoDiv.style.opacity = '0';
-    infoDiv.style.zIndex = '-4';
+    setStyles(infoDiv, 0, -4)
   }, 6000);
 }
