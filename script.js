@@ -11,6 +11,7 @@ function udostepnijQR() {
   kodQRDiv.style.pointerEvents = 'auto';
 }
 
+//Function that is responsible to seting zImdex and opacity
 function setStyles(element, opacity, zIndex) {
   if (opacity !== ''){
     element.style.opacity = opacity;
@@ -20,6 +21,7 @@ function setStyles(element, opacity, zIndex) {
   }
 }
 
+//Function that is responsible to sending messages 
 function sendMessage(){
   var tekstDoQR = window.location.href;
 
@@ -37,6 +39,7 @@ function sendMessage(){
   }
 }
 
+//Function that is responsible to showing QR code 
 function showQrCode(){
   var kodQRDiv = document.getElementById('qr'); // Use 'qr' for the first assignment
   var sharing = document.getElementById('sharing');
@@ -53,6 +56,7 @@ function showQrCode(){
   }
 }
 
+//Function that is responsible to showing div
 function showOffer() {
   var offerDiv = document.getElementById('offer');
   offerDiv.style.pointerEvents = 'auto';
@@ -63,6 +67,8 @@ function showOffer() {
     icon.style.color = 'transparent';
   });
 }
+
+//Function that is responsible to hiding div
 function hiddeOffer(id, event) {
   var offerDiv = document.getElementById(id);
 
@@ -78,10 +84,9 @@ function hiddeOffer(id, event) {
   }
 }
 
+//Function that is responsible to copy link
 function copyLink(){
   var currentUrl = window.location.href;
-
-  // Skopiuj adres do schowka
   navigator.clipboard.writeText(currentUrl).then(function() {
     textInfo("Adres strony pomyślnie skopiowany do schowka");
   }).catch(function(err) {
@@ -89,13 +94,14 @@ function copyLink(){
   });
 }
 
+//Function that is responsible to showing information panel
 function textInfo(text) {
   var infoDiv = document.getElementById('infoDiv');
   var infoText = document.getElementById('text');
   console.log(text);
 
   setStyles(infoDiv, 1, 7)
-  infoText.textContent = text;  // Użyj textContent zamiast text
+  infoText.textContent = text;
 
   setTimeout(function () {
     setStyles(infoDiv, 0, -4)
